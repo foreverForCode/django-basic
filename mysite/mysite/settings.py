@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 Django settings for mysite project.
 
@@ -9,8 +11,10 @@ https://docs.djangoproject.com/en/1.8/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
-# coding: utf-8
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,6 +36,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = (
     'polls',
+    'login',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,3 +127,34 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# session config
+
+# 引擎
+# SESSION_ENGINE = 'django.contrib.sessions.backends.cache',
+
+# Session的cookie保存在浏览器上时的key，即：sessionid＝随机字符
+
+SESSION_COOKIE_NAME = "sessionid"
+
+# Session的cookie保存的路径（默认）
+SESSION_COOKIE_PATH = '/'
+
+# Session的cookie保存的域名（默认）
+SESSION_COOKIE_DOMAIN = None
+
+# 是否Https传输cookie（默认）
+SESSION_COOKIE_SECURE = False
+
+# 是否Session的cookie只支持http传输（默认）
+SESSION_COOKIE_HTTPONLY = True
+
+# Session的cookie失效日期（2周）（默认）
+SESSION_COOKIE_AGE = 1209600
+
+# 是否关闭浏览器使得Session过期（默认）
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+# 是否每次请求都保存Session，默认修改之后才保存（默认）
+SESSION_SAVE_EVERY_REQUEST = False
+
